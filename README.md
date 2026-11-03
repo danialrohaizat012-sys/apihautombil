@@ -39,7 +39,7 @@ Sistem ini laman statik tanpa build step. Routing menggunakan path root (`/`, `/
 
 ## Perlu ditukar sebelum go-live
 
-- [ ] `apih-logo.png` dan `icon-*.png`: logo sementara, tukar dengan logo sebenar Apih.
+- [ ] `apih-logo.png` dan `icon-*.png`: logo gaya signboard "APIH AUTOMOBIL" dengan tagline "Kepercayaan Anda Keutamaan Kami".
 - [ ] `assets/demo/`: gambar kereta contoh, hanya untuk mod demo.
-- [ ] `catalogue-hero-showroom.*`: gambar showroom generik, boleh ditukar dengan foto showroom Apih.
+- [ ] `apih-board.webp`: latar papan zink biru dengan jalur merah-kuning ala signboard Apih.
 - [ ] Nombor WhatsApp, TikTok dan Google Maps: diurus di Tetapan selepas Supabase disambung. Untuk demo, isi `DEMO_WHATSAPP` dalam `app.html`.
