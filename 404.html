@@ -9,16 +9,17 @@
 <script>
 (function(){
   var path=(location.pathname||'').replace(/\/+$/,'');
+  var base=/github\.io$/.test(location.hostname)?'/'+(location.pathname.split('/')[1]||'')+'/':'/';
   var qs=new URLSearchParams(location.search);
   if(path.endsWith('/admin')){
-    location.replace('/app.html?admin=1');
+    location.replace(base+'app.html?admin=1');
     return;
   }
   if(qs.has('car')){
-    location.replace('/app.html?car='+encodeURIComponent(qs.get('car')));
+    location.replace(base+'app.html?car='+encodeURIComponent(qs.get('car')));
     return;
   }
-  location.replace('/');
+  location.replace(base);
 })();
 </script>
 </head>

@@ -173,6 +173,8 @@ function vehicleGallery(c){let imgs=c.images&&c.images.length?c.images:(c.image?
 
 render();
 </script><script type="text/plain" id="ada-deferred-cloud">
+// Folder tempat sistem dipasang (contoh '/' untuk domain sendiri, '/apihautombil/' untuk GitHub Pages).
+const BASE=location.pathname.replace(/[^/]*$/,'').replace(/admin\/$/,'');
 // ===== Tetapan Supabase Apih Automobile =====
 // Isi URL projek dan publishable key Supabase Apih di sini. Selagi kosong, sistem berjalan dalam MOD DEMO:
 // katalog awam papar kereta contoh dan log masuk staf tidak aktif.
@@ -417,7 +419,7 @@ async function loadPublicSettings(){
 }
 async function loadCatalogueSocialLinks(){try{const {data,error}=await client.rpc('get_catalogue_social_links');if(error)throw error;const x=Array.isArray(data)?data[0]:data;if(x){publicSettings.tiktok_url=String(x.tiktok_url||'');publicSettings.maps_url=String(x.maps_url||'')}}catch(e){console.warn('Social links unavailable',e)}}
 function cleanWhatsAppNumber(v){return String(v||'').replace(/[^0-9]/g,'')}
-function vehiclePublicLink(vehicleId){const u=new URL(location.origin+'/');u.searchParams.set('car',vehicleId);return u.href}
+function vehiclePublicLink(vehicleId){const u=new URL(location.origin+BASE);u.searchParams.set('car',vehicleId);return u.href}
 function whatsappText(v,link){const template=publicSettings.whatsapp_message||'Hi Apih Automobile, saya berminat dengan kereta ini: {link}';return template.replaceAll('{link}',link).replaceAll('{vehicle}',v?`${v.make||''} ${v.model||''}`.trim():'').replaceAll('{price}',v?money(publicOfferPrice(v)):'')}
 function whatsappUrl(v,link){const n=cleanWhatsAppNumber(publicSettings.whatsapp_number);if(!n)return '';return `https://wa.me/${n}?text=${encodeURIComponent(whatsappText(v,link))}`}
 function showShareMenu(v){
@@ -583,9 +585,9 @@ async function openPublicCatalogue(vehicleId=null){
   const links=[{name:'WhatsApp',url:cleanWhatsAppNumber(publicSettings.whatsapp_number)?'https://wa.me/'+cleanWhatsAppNumber(publicSettings.whatsapp_number):'',svg:'<path d="M20 11a8 8 0 0 1-8 8 9 9 0 0 1-4-.9L3 20l1.9-4.7A8 8 0 1 1 20 11Z"/><path d="m8 9 2 4 4 2 2-2"/>'},{name:'TikTok',url:publicSettings.tiktok_url,svg:'<path d="M14 3v10a4 4 0 1 1-4-4"/><path d="M14 3c.7 3 2.7 5 6 5v3c-2.4 0-4.5-.9-6-2.4"/>'},{name:'Google Maps',url:publicSettings.maps_url,svg:'<path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/>'}].filter(x=>x.url);const social=links.length?'<div class="ada-footer-social"><strong>Connect With Apih Automobile</strong><div class="ada-footer-social-links">'+links.map(x=>'<a href="'+safe(x.url)+'" aria-label="'+x.name+'" title="'+x.name+'" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'+x.svg+'</svg></a>').join('')+'</div></div>':'';const signature='<footer class="ada-binalab-signature">'+social+'<div>Built by <a href="https://binalab.my" target="_blank" rel="noopener noreferrer">BinaLab</a></div></footer>';
   box.insertAdjacentHTML('beforeend',signature);
   el('ada-cloud-gate').querySelector('.wrap').appendChild(box);
-  box.querySelectorAll('a.ada-public-view').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();const u=new URL(a.href,location.href),id=u.searchParams.get('car');if(!id)return;history.pushState({publicCar:id},'','/?car='+encodeURIComponent(id));openPublicCatalogue(id);window.scrollTo({top:0,behavior:'instant'})}));
-  box.querySelector('#ada-cat-back').onclick=()=>{if(vehicleId){box.remove();history.replaceState(null,'','/?catalogue=1');openPublicCatalogue()}else{location.href='/admin'}};
-  box.querySelector('#ada-public-back-list')?.addEventListener('click',()=>{history.replaceState(null,'','/?catalogue=1');openPublicCatalogue()});
+  box.querySelectorAll('a.ada-public-view').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();const u=new URL(a.href,location.href),id=u.searchParams.get('car');if(!id)return;history.pushState({publicCar:id},'',BASE+'?car='+encodeURIComponent(id));openPublicCatalogue(id);window.scrollTo({top:0,behavior:'instant'})}));
+  box.querySelector('#ada-cat-back').onclick=()=>{if(vehicleId){box.remove();history.replaceState(null,'',BASE+'?catalogue=1');openPublicCatalogue()}else{location.href=BASE+'?admin=1'}};
+  box.querySelector('#ada-public-back-list')?.addEventListener('click',()=>{history.replaceState(null,'',BASE+'?catalogue=1');openPublicCatalogue()});
   box.querySelectorAll('[data-public-image]').forEach(b=>b.addEventListener('click',()=>{const main=box.querySelector('#ada-public-main-image'),frame=box.querySelector('.ada-public-main-photo');if(main){if(main.src===b.dataset.publicImage)return;frame?.classList.add('is-switching');const apply=()=>{main.src=b.dataset.publicImage;box.querySelectorAll('[data-public-image]').forEach(x=>x.classList.toggle('is-active',x===b));const counter=box.querySelector('.ada-public-image-counter');if(counter)counter.textContent=(Number(b.dataset.publicIndex)+1)+'/'+box.querySelectorAll('[data-public-image]').length;setTimeout(()=>frame?.classList.remove('is-switching'),80)};setTimeout(apply,90)}}));
   
 }
@@ -603,13 +605,13 @@ el('ada-open-catalogue').addEventListener('click',()=>{history.replaceState(null
 const adminEntry=params.has('admin')||location.pathname.replace(/\/+$/,'').endsWith('/admin');
 await loadPublicSettings();
 if(adminEntry){
-  history.replaceState(null,'','/admin/');
+  history.replaceState(null,'',BASE+'?admin=1');
   await verify();
 }else if(params.has('car')){
-  history.replaceState(null,'','/?car='+encodeURIComponent(params.get('car')));
+  history.replaceState(null,'',BASE+'?car='+encodeURIComponent(params.get('car')));
   await openPublicCatalogue(params.get('car'));
 }else{
-  history.replaceState(null,'','/');
+  history.replaceState(null,'',BASE);
   await openPublicCatalogue();
 }
 

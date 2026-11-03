@@ -42,10 +42,10 @@ Hanya publishable key sahaja yang boleh diletak dalam kod. Jangan sekali-kali le
 
 ## Deploy (GitHub Pages)
 
-Sistem ini laman statik tanpa build step. Routing menggunakan path root (`/`, `/admin/`), jadi gunakan **domain sendiri** (contoh `apihautomobile.my`):
+Sistem ini laman statik tanpa build step. Ia berfungsi di alamat GitHub Pages (`https://<user>.github.io/apihautombil/`) dan juga di domain sendiri.
 
 1. Settings → Pages → Deploy from branch `main` / root.
-2. Tambah fail `CNAME` berisi nama domain, dan set DNS domain ke GitHub Pages.
+2. (Pilihan) Untuk domain sendiri, tambah fail `CNAME` berisi nama domain dan set DNS ke GitHub Pages.
 
 ## Perlu ditukar sebelum go-live
 
