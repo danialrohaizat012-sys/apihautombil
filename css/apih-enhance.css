@@ -1,0 +1,204 @@
+/* Apih Automobile — lapisan UI tambahan (katalog awam). */
+:root{--apih-navy:#0a1533;--apih-navy2:#11245c;--apih-yellow:#ffc61a;--apih-yellow2:#ffe066;--apih-red:#d62828;--apih-wa:#25d366;--apih-glass:rgba(10,21,51,.72)}
+html.apih-lock #ada-public-catalogue{overflow:hidden!important}
+#ada-public-catalogue{scroll-behavior:smooth;-webkit-tap-highlight-color:transparent}
+#ada-public-catalogue [hidden]{display:none!important}
+
+/* ---------- Brand monogram ---------- */
+.apih-brand-mono{display:grid;place-items:center;width:34px;height:34px;border-radius:50%;background:linear-gradient(145deg,var(--apih-navy2),var(--apih-navy));border:1.5px solid rgba(255,198,26,.55);color:var(--apih-yellow);font:400 15px/1 Anton,Inter,sans-serif;letter-spacing:.04em;box-shadow:inset 0 1px 0 rgba(255,255,255,.12)}
+.ada-brand-chip.active .apih-brand-mono{background:var(--apih-yellow);color:var(--apih-navy);border-color:var(--apih-yellow)}
+
+/* ---------- Hero ---------- */
+#ada-public-catalogue .ada-cat-hero{position:relative;overflow:hidden}
+#ada-public-catalogue .ada-cat-hero h1{background:linear-gradient(100deg,var(--apih-yellow) 0%,var(--apih-yellow) 42%,#fff6c8 50%,var(--apih-yellow) 58%,var(--apih-yellow) 100%);background-size:260% 100%;-webkit-background-clip:text;background-clip:text;color:transparent!important;text-shadow:none!important;filter:drop-shadow(0 3px 0 #050b1c) drop-shadow(0 10px 22px rgba(0,0,0,.55));animation:apih-shine 5.5s ease-in-out infinite,apih-rise .7s cubic-bezier(.2,.8,.2,1) both}
+#ada-public-catalogue .ada-cat-kicker{animation:apih-rise .6s .05s cubic-bezier(.2,.8,.2,1) both}
+#ada-public-catalogue .apih-tagline{animation:apih-rise .7s .15s cubic-bezier(.2,.8,.2,1) both}
+#ada-public-catalogue .ada-cat-hero::after{content:"";position:absolute;left:0;right:0;bottom:0;height:5px;background:linear-gradient(90deg,var(--apih-red),var(--apih-yellow),var(--apih-red));background-size:200% 100%;animation:apih-flow 6s linear infinite;pointer-events:none}
+.apih-hero-chips{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0 14px;animation:apih-rise .7s .25s cubic-bezier(.2,.8,.2,1) both}
+.apih-hero-chips span{display:inline-flex;align-items:center;gap:6px;padding:7px 11px;border-radius:999px;background:rgba(8,18,46,.66);border:1px solid rgba(255,198,26,.28);color:#e9eefc;font-size:12px;font-weight:600;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+.apih-hero-chips svg{width:14px;height:14px;fill:none;stroke:var(--apih-yellow);stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.apih-hero-chips .live{color:#fff}
+.apih-hero-chips .live i{width:8px;height:8px;border-radius:50%;background:#3ddc84;box-shadow:0 0 0 0 rgba(61,220,132,.7);animation:apih-pulse 1.8s infinite}
+
+/* ---------- Toolbar + bottom sheet ---------- */
+.apih-toolbar{display:none}
+.apih-sheet,.apih-sheet-panel,.apih-sheet-body{display:contents}
+.apih-sheet-backdrop,.apih-sheet-grip,.apih-sheet-head,.apih-sheet-actions{display:none}
+
+/* ---------- Kad ---------- */
+#ada-public-catalogue .ada-public-card{cursor:pointer;transition:transform .25s cubic-bezier(.2,.8,.2,1),box-shadow .25s,border-color .25s}
+#ada-public-catalogue .ada-public-card:hover{transform:translateY(-4px);border-color:rgba(255,198,26,.45)!important;box-shadow:0 18px 40px rgba(0,0,0,.45)}
+#ada-public-catalogue .ada-public-card:active{transform:scale(.985)}
+#ada-public-catalogue .ada-public-card[data-apih]{opacity:0;transform:translateY(18px)}
+#ada-public-catalogue .ada-public-card.apih-in{opacity:1;transform:none;transition:opacity .55s var(--apih-delay,0ms) ease,transform .55s var(--apih-delay,0ms) cubic-bezier(.2,.8,.2,1),box-shadow .25s,border-color .25s}
+#ada-public-catalogue .ada-public-card-media img{transition:transform .6s cubic-bezier(.2,.8,.2,1)}
+#ada-public-catalogue .ada-public-card:hover .ada-public-card-media img{transform:scale(1.05)}
+
+/* ---------- Kalkulator ---------- */
+.apih-calc{margin:16px 0;padding:18px;border-radius:20px;background:linear-gradient(160deg,rgba(28,58,138,.55),rgba(8,18,46,.9));border:1px solid rgba(255,198,26,.3);box-shadow:inset 0 1px 0 rgba(255,255,255,.08)}
+.apih-calc-head{display:flex;gap:12px;align-items:center;margin-bottom:14px}
+.apih-calc-head>svg{width:38px;height:38px;padding:8px;border-radius:12px;background:rgba(255,198,26,.14);fill:none;stroke:var(--apih-yellow);stroke-width:1.8;stroke-linecap:round;flex:none}
+.apih-calc-head h3{margin:0;font:400 20px/1.1 Anton,Inter,sans-serif;letter-spacing:.02em;color:#fff}
+.apih-calc-head small{color:#9fb0d6;font-size:12px}
+.apih-calc-result{display:grid;gap:2px;padding:14px 16px;border-radius:16px;background:rgba(5,11,28,.6);margin-bottom:14px;text-align:center}
+.apih-calc-result span{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#9fb0d6}
+.apih-calc-result strong{font:400 40px/1.05 Anton,Inter,sans-serif;color:var(--apih-yellow);letter-spacing:.01em;font-variant-numeric:tabular-nums}
+.apih-calc-result small{color:#c9d4ee;font-size:12px}
+.apih-calc-row{display:grid;gap:8px;margin-top:12px}
+.apih-calc-row>span{display:flex;justify-content:space-between;font-size:13px;color:#c9d4ee;font-weight:600}
+.apih-calc-row>span b{color:#fff}
+.apih-calc input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:8px;border-radius:99px;background:linear-gradient(90deg,var(--apih-yellow) var(--p,30%),rgba(255,255,255,.14) var(--p,30%));outline:none}
+.apih-calc input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:26px;height:26px;border-radius:50%;background:#fff;border:5px solid var(--apih-yellow);box-shadow:0 4px 12px rgba(0,0,0,.4)}
+.apih-calc input[type=range]::-moz-range-thumb{width:18px;height:18px;border-radius:50%;background:#fff;border:5px solid var(--apih-yellow)}
+.apih-calc-tenure{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.apih-calc-tenure button{padding:11px 0;border-radius:12px;border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.04);color:#dfe6f7;font-weight:700;font-size:13px;cursor:pointer;transition:all .2s}
+.apih-calc-tenure button.on{background:var(--apih-yellow);border-color:var(--apih-yellow);color:var(--apih-navy);box-shadow:0 6px 18px rgba(255,198,26,.3)}
+
+/* ---------- Butang kembali atas gambar ---------- */
+.apih-photo-back{display:none}
+
+/* ---------- Dok & bar beli ---------- */
+.apih-dock,.apih-buybar{display:none}
+#apih-toast{position:fixed;left:50%;bottom:calc(96px + env(safe-area-inset-bottom));z-index:2147483600;transform:translate(-50%,20px);opacity:0;max-width:min(92vw,420px);padding:12px 16px;border-radius:14px;background:#fff;color:var(--apih-navy);font-size:13px;font-weight:600;box-shadow:0 14px 40px rgba(0,0,0,.45);transition:all .3s cubic-bezier(.2,.8,.2,1);pointer-events:none;text-align:center}
+#apih-toast.show{opacity:1;transform:translate(-50%,0)}
+
+@keyframes apih-shine{0%,35%{background-position:100% 0}65%,100%{background-position:0 0}}
+@keyframes apih-rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+@keyframes apih-flow{to{background-position:200% 0}}
+@keyframes apih-pulse{0%{box-shadow:0 0 0 0 rgba(61,220,132,.7)}70%{box-shadow:0 0 0 8px rgba(61,220,132,0)}100%{box-shadow:0 0 0 0 rgba(61,220,132,0)}}
+@keyframes apih-up{from{transform:translateY(110%)}to{transform:none}}
+
+/* =================== TELEFON =================== */
+@media(max-width:720px){
+  /* Nav lebih ringkas, kabur bila skrol */
+  #ada-public-catalogue .ada-public-nav{position:sticky;top:0;z-index:30;padding:10px 14px!important;margin:0 -14px;background:transparent;transition:background .25s,backdrop-filter .25s}
+  #ada-public-catalogue.apih-scrolled .ada-public-nav{background:var(--apih-glass);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);box-shadow:0 1px 0 rgba(255,255,255,.06)}
+  #ada-public-catalogue .ada-public-brand img{height:30px!important;width:auto!important;border-radius:6px}
+  #ada-public-catalogue .ada-public-brand small{display:none}
+  #ada-public-catalogue #ada-cat-back{padding:9px 14px!important;font-size:13px!important;border-radius:999px!important}
+
+  /* Hero */
+  #ada-public-catalogue .ada-cat-hero{padding:20px 16px 18px!important;border-radius:22px!important}
+  #ada-public-catalogue .ada-cat-hero h1{font-size:clamp(46px,14vw,62px)!important;margin:6px 0 4px!important}
+  .apih-hero-chips{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;margin:12px -16px 14px;padding:0 16px}
+  .apih-hero-chips::-webkit-scrollbar{display:none}
+  .apih-hero-chips span{flex:none}
+  #ada-public-catalogue .ada-cat-search{border-radius:16px!important}
+
+  /* Toolbar + bottom sheet */
+  .apih-toolbar{display:flex;gap:8px;margin:14px 0 4px}
+  .apih-filter-btn{display:inline-flex;align-items:center;gap:8px;padding:11px 16px;border-radius:999px;border:1px solid rgba(255,198,26,.4);background:rgba(255,198,26,.08);color:#fff;font-weight:700;font-size:14px;cursor:pointer}
+  .apih-filter-btn svg{width:18px;height:18px;fill:none;stroke:var(--apih-yellow);stroke-width:2.2;stroke-linecap:round}
+  .apih-filter-btn b{display:grid;place-items:center;min-width:20px;height:20px;padding:0 6px;border-radius:99px;background:var(--apih-red);font-size:11px}
+  .apih-sheet{display:block;position:fixed;inset:0;z-index:60;pointer-events:none}
+  .apih-sheet-backdrop{display:block;position:absolute;inset:0;background:rgba(2,6,18,.6);opacity:0;transition:opacity .3s;backdrop-filter:blur(2px)}
+  .apih-sheet-panel{display:block;position:absolute;left:0;right:0;bottom:0;max-height:86vh;overflow:auto;padding:8px 18px calc(18px + env(safe-area-inset-bottom));border-radius:26px 26px 0 0;background:linear-gradient(180deg,#13245a,#0a1533 60%);border-top:1px solid rgba(255,198,26,.35);box-shadow:0 -20px 60px rgba(0,0,0,.6);transform:translateY(105%);transition:transform .38s cubic-bezier(.2,.9,.25,1)}
+  .apih-sheet-body{display:block}
+  .apih-sheet.open{pointer-events:auto}
+  .apih-sheet.open .apih-sheet-backdrop{opacity:1}
+  .apih-sheet.open .apih-sheet-panel{transform:none}
+  .apih-sheet-grip{display:block;width:44px;height:5px;border-radius:9px;background:rgba(255,255,255,.25);margin:4px auto 10px}
+  .apih-sheet-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px}
+  .apih-sheet-head h3{margin:0;font:400 24px/1 Anton,Inter,sans-serif;letter-spacing:.02em;color:#fff}
+  .apih-sheet-close{width:36px;height:36px;border-radius:50%;border:0;background:rgba(255,255,255,.08);color:#fff;font-size:15px}
+  .apih-sheet .ada-cat-tools{display:grid!important;grid-template-columns:1fr!important;gap:10px!important;margin:0!important}
+  .apih-sheet .ada-cat-select{min-height:58px}
+  .apih-sheet-actions{display:grid;grid-template-columns:1fr 2fr;gap:10px;margin-top:16px}
+  .apih-sheet-actions button{padding:15px;border-radius:14px;font-weight:800;font-size:15px;border:1px solid rgba(255,255,255,.16);background:transparent;color:#fff}
+  .apih-sheet-actions .apih-sheet-apply{background:var(--apih-yellow);border-color:var(--apih-yellow);color:var(--apih-navy);box-shadow:0 8px 24px rgba(255,198,26,.3)}
+
+  /* Jenama: skrol mendatar dengan snap */
+  #ada-public-catalogue .ada-brand-strip{display:flex!important;flex-wrap:nowrap!important;overflow-x:auto!important;scroll-snap-type:x mandatory;gap:10px!important;margin:10px -14px 6px!important;padding:4px 14px 8px!important;scrollbar-width:none}
+  #ada-public-catalogue .ada-brand-strip::-webkit-scrollbar{display:none}
+  #ada-public-catalogue .ada-brand-chip{flex:none!important;scroll-snap-align:start;width:74px!important;min-height:76px!important;border-radius:18px!important}
+  #ada-public-catalogue .ada-cat-results{margin:8px 0 12px!important}
+  #ada-public-catalogue .ada-cat-results strong{font-size:15px}
+  #ada-public-catalogue .ada-cat-reset{display:none!important}
+
+  /* Kad gaya app: gambar kiri, maklumat kanan */
+  #ada-public-catalogue .ada-public-grid{display:grid!important;grid-template-columns:1fr!important;gap:12px!important;padding:0!important;margin:0!important}
+  #ada-public-catalogue .ada-public-card{display:grid!important;grid-template-columns:42% 1fr;min-height:0!important;border-radius:20px!important;overflow:hidden;background:linear-gradient(135deg,rgba(17,36,92,.9),rgba(8,18,46,.95))!important}
+  #ada-public-catalogue .ada-public-card-media{position:relative!important;height:100%!important;min-height:150px!important;aspect-ratio:auto!important;border-radius:0!important}
+  #ada-public-catalogue .ada-public-card-media img{position:absolute;inset:0;width:100%!important;height:100%!important;object-fit:cover!important;object-position:50% 40%}
+  #ada-public-catalogue .ada-public-card-badge{top:8px!important;left:8px!important;font-size:9px!important;padding:4px 8px!important}
+  #ada-public-catalogue .ada-public-photo-count{display:none!important}
+  #ada-public-catalogue .ada-public-card-body{display:flex!important;flex-direction:column;justify-content:center;gap:4px;padding:14px 14px 14px 12px!important}
+  #ada-public-catalogue .ada-public-card-body h2{font-size:15px!important;line-height:1.25!important;margin:0!important;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+  #ada-public-catalogue .ada-public-card-meta{font-size:11px!important;gap:6px!important;margin:0!important}
+  #ada-public-catalogue .ada-public-card-meta span:nth-child(3){display:none}
+  #ada-public-catalogue .ada-public-card-price{margin:6px 0 0!important}
+  #ada-public-catalogue .ada-public-card-price strong{font-size:21px!important}
+  #ada-public-catalogue .ada-public-card-price small{font-size:11px!important}
+  #ada-public-catalogue .ada-offer-row{gap:6px!important}
+  #ada-public-catalogue .ada-price-old{font-size:11px!important}
+  #ada-public-catalogue .ada-discount-badge{font-size:9px!important;padding:2px 6px!important}
+  #ada-public-catalogue .ada-public-card-tags{display:none!important}
+  #ada-public-catalogue .ada-public-view{margin-top:8px!important;padding:8px 12px!important;font-size:12px!important;border-radius:10px!important;align-self:flex-start;min-height:0!important;width:auto!important}
+  #ada-public-catalogue .ada-public-card.is-sold{opacity:.7}
+
+  /* Ruang untuk dok / bar */
+  #ada-public-catalogue .ada-binalab-signature{padding-bottom:110px!important}
+
+  /* Dok terapung (senarai) */
+  .apih-dock{display:flex;position:fixed;left:50%;bottom:calc(16px + env(safe-area-inset-bottom));z-index:2147483000;gap:6px;padding:6px;border-radius:999px;background:var(--apih-glass);border:1px solid rgba(255,198,26,.3);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);box-shadow:0 14px 40px rgba(0,0,0,.55);transform:translate(-50%,140%);transition:transform .4s cubic-bezier(.2,.9,.25,1)}
+  .apih-dock.show{transform:translate(-50%,0)}
+  .apih-dock button{display:inline-flex;align-items:center;gap:6px;border:0;border-radius:999px;padding:11px 16px;font-weight:800;font-size:13px;color:#fff;background:rgba(255,255,255,.06);cursor:pointer}
+  .apih-dock svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+  .apih-dock .apih-dock-up{padding:11px}
+  .apih-dock .apih-dock-wa{background:var(--apih-wa);color:#04210f}
+
+  /* Detail: gambar penuh lebar */
+  #ada-public-catalogue.apih-detail .ada-public-nav{display:none!important}
+  #ada-public-catalogue.apih-detail .ada-public-detail{padding-top:0!important}
+  #ada-public-catalogue.apih-detail .ada-public-detail-hero{gap:0!important;margin-top:0!important}
+  #ada-public-catalogue.apih-detail .ada-public-main-photo{margin:0 -14px!important;border-radius:0 0 28px 28px!important;aspect-ratio:4/3!important;border:0!important;box-shadow:0 20px 40px rgba(0,0,0,.4)}
+  #ada-public-catalogue.apih-detail .ada-public-main-photo::after{content:"";position:absolute;inset:auto 0 0 0;height:40%;background:linear-gradient(transparent,rgba(5,11,28,.75));pointer-events:none;border-radius:0 0 28px 28px}
+  #ada-public-catalogue.apih-detail .ada-public-cover-badge{display:none!important}
+  .apih-photo-back{display:grid;place-items:center;position:absolute;top:calc(14px + env(safe-area-inset-top));left:14px;z-index:5;width:42px;height:42px;border-radius:50%;border:1px solid rgba(255,255,255,.2);background:var(--apih-glass);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);color:#fff;cursor:pointer}
+  .apih-photo-back svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+  #ada-public-catalogue.apih-detail .ada-public-detail-copy{margin-top:-28px!important;position:relative;z-index:2;border-radius:24px!important;padding:22px 18px!important;animation:apih-rise .6s .1s cubic-bezier(.2,.8,.2,1) both}
+  #ada-public-catalogue.apih-detail .ada-public-detail-copy h1{font-size:34px!important;line-height:1.05!important}
+  #ada-public-catalogue.apih-detail .ada-public-trust{grid-template-columns:repeat(4,1fr)!important;gap:6px!important}
+  #ada-public-catalogue.apih-detail .ada-public-trust>div{padding:10px 6px!important;text-align:center}
+  #ada-public-catalogue.apih-detail .ada-public-trust>div span{font-size:9px!important}
+  #ada-public-catalogue.apih-detail .ada-public-trust>div strong{font-size:12px!important}
+  #ada-public-catalogue.apih-detail{padding-bottom:96px}
+
+  /* Bar beli melekat */
+  .apih-buybar{display:flex;align-items:center;gap:12px;position:fixed;left:10px;right:10px;bottom:calc(10px + env(safe-area-inset-bottom));z-index:2147483000;padding:10px 10px 10px 18px;border-radius:22px;background:var(--apih-glass);border:1px solid rgba(255,198,26,.3);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);box-shadow:0 16px 44px rgba(0,0,0,.6);transform:translateY(140%)}
+  .apih-buybar.show{animation:apih-up .5s .25s cubic-bezier(.2,.9,.25,1) both;transform:none}
+  .apih-buybar-price{display:grid;line-height:1.1;min-width:0}
+  .apih-buybar-price small{font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:#9fb0d6}
+  .apih-buybar-price strong{font:400 24px/1.1 Anton,Inter,sans-serif;color:var(--apih-yellow);letter-spacing:.01em}
+  .apih-buybar-price em{font-style:normal;font-size:11px;color:#c9d4ee;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .apih-buybar-wa{margin-left:auto;display:inline-flex;align-items:center;gap:8px;padding:14px 18px;border:0;border-radius:16px;background:var(--apih-wa);color:#04210f;font-weight:800;font-size:14px;box-shadow:0 8px 24px rgba(37,211,102,.35);cursor:pointer;white-space:nowrap}
+  .apih-buybar-wa svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+  .apih-buybar-wa:disabled{background:#3a4566;color:#c9d4ee;box-shadow:none}
+}
+@media (prefers-reduced-motion:reduce){
+  #ada-public-catalogue *,.apih-dock,.apih-buybar,.apih-sheet-panel{animation:none!important;transition:none!important}
+  #ada-public-catalogue .ada-public-card[data-apih]{opacity:1;transform:none}
+}
+
+/* ---------- Neutralkan gaya butang global #ada-cloud-gate ---------- */
+#ada-cloud-gate :is(.apih-dock,.apih-buybar,.apih-sheet,.apih-calc,.apih-toolbar) button,#ada-cloud-gate .apih-photo-back{margin:0!important;max-width:none!important;overflow-wrap:normal!important;word-break:keep-all!important;white-space:nowrap;transform:none;box-shadow:none}
+#ada-cloud-gate .apih-filter-btn{background:rgba(255,198,26,.08)!important;color:#fff!important;border:1px solid rgba(255,198,26,.4)!important;border-radius:999px!important;padding:11px 16px!important}
+#ada-cloud-gate .apih-dock button{background:rgba(255,255,255,.07)!important;color:#fff!important;border-radius:999px!important;padding:11px 16px!important}
+#ada-cloud-gate .apih-dock .apih-dock-up{padding:11px!important}
+#ada-cloud-gate .apih-dock .apih-dock-wa{background:var(--apih-wa)!important;color:#04210f!important}
+#ada-cloud-gate .apih-sheet-close{background:rgba(255,255,255,.08)!important;color:#fff!important;border-radius:50%!important;padding:0!important;width:36px;height:36px}
+#ada-cloud-gate .apih-sheet-actions button{background:transparent!important;color:#fff!important;border:1px solid rgba(255,255,255,.16)!important;border-radius:14px!important;padding:15px!important}
+#ada-cloud-gate .apih-sheet-actions .apih-sheet-apply{background:var(--apih-yellow)!important;color:var(--apih-navy)!important;border-color:var(--apih-yellow)!important}
+#ada-cloud-gate .apih-photo-back{background:var(--apih-glass)!important;color:#fff!important;border:1px solid rgba(255,255,255,.2)!important;border-radius:50%!important;padding:0!important}
+#ada-cloud-gate .apih-calc-tenure button{background:rgba(255,255,255,.04)!important;color:#dfe6f7!important;border:1px solid rgba(255,255,255,.14)!important;border-radius:12px!important;padding:11px 0!important}
+#ada-cloud-gate .apih-calc-tenure button.on{background:var(--apih-yellow)!important;color:var(--apih-navy)!important;border-color:var(--apih-yellow)!important}
+#ada-cloud-gate .apih-buybar-wa{background:var(--apih-wa)!important;color:#04210f!important;border-radius:16px!important;padding:14px 18px!important}
+#ada-cloud-gate .apih-buybar-wa:disabled{background:#3a4566!important;color:#c9d4ee!important}
+#ada-cloud-gate .apih-calc input[type=range]{border:0!important;padding:0!important;margin:4px 0!important;height:8px!important;border-radius:99px!important;background:linear-gradient(90deg,var(--apih-yellow) var(--p,30%),rgba(255,255,255,.14) var(--p,30%))!important;box-shadow:none!important}
+#ada-cloud-gate .apih-calc input[type=range]{min-height:0!important;height:10px!important;width:100%!important}
+html.apih-lock .apih-dock{transform:translate(-50%,160%)!important}
+@media(max-width:720px){
+  #ada-public-catalogue.apih-detail .ada-public-image-counter{display:none!important}
+  #ada-public-catalogue.apih-detail .ada-public-trust{grid-template-columns:1fr 1fr!important;gap:8px!important}
+  #ada-public-catalogue.apih-detail .ada-public-trust>div{text-align:left;padding:10px 12px!important}
+}

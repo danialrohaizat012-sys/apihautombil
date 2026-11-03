@@ -12,6 +12,16 @@ Supabase untuk Apih belum disambung, jadi sistem berjalan dalam mod demo:
 - Halaman detail kereta (`/?car=ADA-004`) berfungsi, termasuk harga promo dan ansuran bulanan.
 - Log masuk staf (`/?admin=1`) belum aktif dan akan memaparkan mesej "Mod demo".
 
+## Ciri UI telefon
+
+Ciri-ciri ini ada dalam `js/apih-enhance.js` dan `css/apih-enhance.css`. Ia hanya lapisan paparan, logik data tidak diubah.
+
+- Hero beranimasi dengan chip "unit sedia", waktu buka dan pembiayaan.
+- Penapis dalam bottom sheet, dan jenama boleh diskrol mendatar.
+- Kad kereta gaya app dengan animasi masuk.
+- Dok terapung (ke atas / tapis / WhatsApp).
+- Halaman kereta: gambar penuh lebar, bar harga + WhatsApp yang melekat di bawah, dan kalkulator ansuran (deposit + tempoh).
+
 ## Sambung ke Supabase Apih
 
 1. Cipta projek baharu di [supabase.com](https://supabase.com) untuk Apih Automobile.
