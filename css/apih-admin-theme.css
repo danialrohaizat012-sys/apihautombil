@@ -1,0 +1,254 @@
+/* Apih Automobile — tema "gelap lembut" untuk panel admin (backend) dan log masuk.
+   Latar arang neutral, kad sedikit cerah dengan bingkai jelas, teks putih/kelabu terang,
+   aksen biru; kuning hanya untuk amaran. Tiada kecerunan atau glow.
+   Hanya aktif di laluan staf / log masuk; katalog awam kekal tema jenama. */
+html.ada-staff-route,html.ada-auth-route{
+  --la-bg:#16181d;--la-surface:#1f2228;--la-soft:#262a31;--la-hover:#2a2e36;--la-line:#2c3038;--la-line2:#3a3f49;--la-line3:#4a505c;
+  --la-ink:#f2f4f7;--la-ink2:#d5dae3;--la-muted:#b4bac6;--la-placeholder:#8b919d;--la-side-ink:#c3c8d2;
+  --la-navy:#2f6fe4;--la-primary-hover:#4280f0;--la-accent:#7aaeff;--la-navy2:#121418;
+  --la-yellow:#f5c542;--la-yellow-soft:rgba(245,197,66,.12);--la-yellow-line:rgba(245,197,66,.45);
+  --la-green:#4ade80;--la-green-soft:rgba(74,222,128,.12);--la-green-line:rgba(74,222,128,.4);
+  --la-red:#f87171;--la-red-soft:rgba(248,113,113,.12);--la-red-line:rgba(248,113,113,.42);
+  --la-amber:#fbbf24;--la-amber-soft:rgba(251,191,36,.12);--la-amber-line:rgba(251,191,36,.42);
+  --la-blue-soft:rgba(76,141,255,.14);--la-blue-line:rgba(122,174,255,.4);
+  --la-shadow:0 1px 2px rgba(0,0,0,.35);
+  color-scheme:dark;
+}
+html.ada-staff-route body,html.ada-auth-route body{background:var(--la-bg)!important}
+
+/* ---------- Asas ---------- */
+html.ada-staff-route #ada-cloud-gate,html.ada-auth-route #ada-cloud-gate{background:var(--la-bg)!important;color:var(--la-ink)!important}
+html.ada-staff-route #ada-cloud-gate::before,html.ada-staff-route #ada-cloud-gate::after,
+html.ada-auth-route #ada-cloud-gate::before,html.ada-auth-route #ada-cloud-gate::after,
+html.ada-auth-route #ada-cloud-gate .wrap::before,html.ada-auth-route #ada-cloud-gate .wrap::after,
+html.ada-staff-route #ada-cloud-gate .wrap::before,html.ada-staff-route #ada-cloud-gate .wrap::after{display:none!important;content:none!important}
+html.ada-staff-route #ada-cloud-gate *,html.ada-auth-route #ada-cloud-gate *{color:inherit!important;text-shadow:none!important}
+html.ada-staff-route #ada-cloud-gate .muted,html.ada-staff-route #ada-cloud-gate small,
+html.ada-staff-route #ada-cloud-gate .ada-kpi-label,html.ada-staff-route #ada-cloud-gate .ada-kpi-foot,
+html.ada-staff-route #ada-cloud-gate .ada-car-meta,html.ada-staff-route #ada-cloud-gate .ada-page-context,
+html.ada-staff-route #ada-cloud-gate .cloud-stat span,html.ada-staff-route #ada-cloud-gate th{color:var(--la-muted)!important}
+html.ada-staff-route #ada-cloud-gate h1,html.ada-staff-route #ada-cloud-gate h2,html.ada-staff-route #ada-cloud-gate h3,html.ada-staff-route #ada-cloud-gate h4{color:var(--la-ink)!important;font-family:Inter,-apple-system,'Segoe UI',sans-serif!important;letter-spacing:-.01em!important;font-weight:750!important}
+
+/* ---------- Bar atas ---------- */
+html.ada-staff-route #ada-cloud-gate .wrap>header{background:var(--la-surface)!important;border-bottom:1px solid var(--la-line)!important;box-shadow:none!important}
+html.ada-staff-route #ada-cloud-gate .ada-cloud-brandcopy strong,html.ada-staff-route #ada-cloud-gate .ada-cloud-brand strong{color:var(--la-accent)!important}
+html.ada-staff-route #ada-cloud-gate .cloud-pill{background:var(--la-green-soft)!important;color:var(--la-green)!important;border:1px solid var(--la-green-line)!important}
+
+/* ---------- Sidebar ---------- */
+html.ada-staff-route #ada-cloud-gate .cloud-side{background:var(--la-navy2)!important;border-right:0!important;color:var(--la-side-ink)!important}
+html.ada-staff-route #ada-cloud-gate .cloud-side button{background:transparent!important;color:var(--la-side-ink)!important;border:0!important;border-radius:10px!important;box-shadow:none!important;font-weight:600!important}
+html.ada-staff-route #ada-cloud-gate .cloud-side button:hover{background:rgba(255,255,255,.07)!important;color:#fff!important;transform:none!important}
+html.ada-staff-route #ada-cloud-gate .cloud-side button.active{background:var(--la-blue-soft)!important;color:#fff!important;box-shadow:inset 3px 0 0 var(--la-accent)!important}
+html.ada-staff-route #ada-cloud-gate .ada-side-logo small{color:var(--la-muted)!important}
+
+/* ---------- Kawasan utama ---------- */
+html.ada-staff-route #ada-cloud-gate main{background:transparent!important}
+html.ada-staff-route #ada-cloud-gate .cloud-hero{background:var(--la-surface)!important;border:0!important;border-radius:16px!important;box-shadow:var(--la-shadow)!important;color:#fff!important;min-height:0!important;height:auto!important;padding:20px 24px!important}
+html.ada-staff-route #ada-cloud-gate .cloud-hero::before,html.ada-staff-route #ada-cloud-gate .cloud-hero::after{display:none!important}
+html.ada-staff-route #ada-cloud-gate .cloud-hero h1{color:#fff!important;font-size:clamp(22px,3vw,28px)!important;margin:6px 0 2px!important}
+html.ada-staff-route #ada-cloud-gate .cloud-hero .muted,html.ada-staff-route #ada-cloud-gate .cloud-hero small{color:var(--la-side-ink)!important}
+html.ada-staff-route #ada-cloud-gate .ada-cloud-kicker{color:var(--la-accent)!important;font-weight:800!important}
+html.ada-staff-route #ada-cloud-gate .cloud-notice{background:var(--la-blue-soft)!important;border:1px solid var(--la-blue-line)!important;color:var(--la-ink2)!important;border-radius:12px!important;font-size:13.5px!important}
+
+/* Kad & panel */
+html.ada-staff-route #ada-cloud-gate :is(.ada-kpi,.ada-dash-card,.cloud-car,.panel,.ada-master-box,.cloud-stat,.ada-report-note,.ada-settings-form,.cloud-table-wrap,.ada-master-panel,.ada-inspection-progress,.cloud-form,.card,.inspection-panel,.ada-vp-panel,.ada-share-card){background:var(--la-surface)!important;border:1px solid var(--la-line)!important;box-shadow:var(--la-shadow)!important;border-radius:14px!important}
+html.ada-staff-route #ada-cloud-gate :is(.ada-kpi,.ada-dash-card,.cloud-car,.panel,.cloud-stat)::before,
+html.ada-staff-route #ada-cloud-gate :is(.ada-kpi,.ada-dash-card,.cloud-car,.panel,.cloud-stat)::after{display:none!important}
+html.ada-staff-route #ada-cloud-gate :is(.ada-attention-row,.ada-master-row,.ada-message-preview,.ada-dash-quick button){background:var(--la-soft)!important;border:1px solid var(--la-line)!important;box-shadow:none!important}
+html.ada-staff-route #ada-cloud-gate .ada-dash-quick button{color:var(--la-ink)!important}
+html.ada-staff-route #ada-cloud-gate .ada-dash-quick button:hover{border-color:var(--la-navy)!important;background:var(--la-surface)!important}
+html.ada-staff-route #ada-cloud-gate .ada-dash-quick button b{color:var(--la-accent)!important}
+html.ada-staff-route #ada-cloud-gate .ada-attention-icon{background:var(--la-blue-soft)!important;color:var(--la-accent)!important;border:0!important}
+html.ada-staff-route #ada-cloud-gate .ada-attention-count{color:var(--la-accent)!important}
+html.ada-staff-route #ada-cloud-gate .ada-kpi-value{color:var(--la-ink)!important;font-family:Inter,sans-serif!important;font-weight:800!important;letter-spacing:-.02em!important}
+html.ada-staff-route #ada-cloud-gate .ada-kpi-dot{background:var(--la-green)!important}
+html.ada-staff-route #ada-cloud-gate .ada-role-chip{background:var(--la-blue-soft)!important;color:var(--la-accent)!important;border:1px solid var(--la-blue-line)!important}
+html.ada-staff-route #ada-cloud-gate .ada-public-eyebrow{color:var(--la-amber)!important}
+
+/* Kad kereta */
+html.ada-staff-route #ada-cloud-gate .cloud-car .photo{background:var(--la-soft)!important}
+html.ada-staff-route #ada-cloud-gate .ada-car-placeholder{color:var(--la-muted)!important}
+html.ada-staff-route #ada-cloud-gate .ada-price{color:var(--la-accent)!important;font-weight:800!important}
+html.ada-staff-route #ada-cloud-gate .ada-live-dot{background:var(--la-green)!important}
+html.ada-staff-route #ada-cloud-gate :is(.ada-icon-action,.ada-profile-btn){background:var(--la-surface)!important;border:1px solid var(--la-line2)!important;color:var(--la-ink2)!important}
+html.ada-staff-route #ada-cloud-gate .ada-icon-action.is-live{background:var(--la-green-soft)!important;border-color:var(--la-green-line)!important;color:var(--la-green)!important}
+html.ada-staff-route #ada-cloud-gate .ada-share-action{background:var(--la-surface)!important;border:1px solid var(--la-navy)!important;color:var(--la-accent)!important}
+html.ada-staff-route #ada-cloud-gate .ada-photo-count{background:rgba(20,33,61,.7)!important;color:#fff!important}
+
+/* Status */
+html.ada-staff-route #ada-cloud-gate :is(.status-available,.cloud-pill.ok){background:var(--la-green-soft)!important;color:var(--la-green)!important;border:1px solid var(--la-green-line)!important}
+html.ada-staff-route #ada-cloud-gate .status-reserved{background:var(--la-amber-soft)!important;color:var(--la-amber)!important;border:1px solid var(--la-amber-line)!important}
+html.ada-staff-route #ada-cloud-gate .status-sold{background:var(--la-red-soft)!important;color:var(--la-red)!important;border:1px solid var(--la-red-line)!important}
+html.ada-staff-route #ada-cloud-gate .status-preparation{background:var(--la-blue-soft)!important;color:var(--la-accent)!important;border:1px solid var(--la-blue-line)!important}
+html.ada-staff-route #ada-cloud-gate td .cloud-pill{background:var(--la-soft)!important;color:var(--la-ink2)!important;border:1px solid var(--la-line)!important}
+
+/* Jadual */
+html.ada-staff-route #ada-cloud-gate .cloud-table{background:var(--la-surface)!important;border-collapse:collapse!important}
+html.ada-staff-route #ada-cloud-gate .cloud-table th{background:var(--la-soft)!important;border-bottom:1px solid var(--la-line)!important;font-size:11.5px!important;letter-spacing:.06em!important}
+html.ada-staff-route #ada-cloud-gate .cloud-table td{border-bottom:1px solid var(--la-line)!important;background:var(--la-surface)!important}
+html.ada-staff-route #ada-cloud-gate .cloud-table tr:hover td{background:var(--la-hover)!important}
+
+/* Butang */
+html.ada-staff-route #ada-cloud-gate button,html.ada-auth-route #ada-cloud-gate button{background:var(--la-navy)!important;color:#fff!important;border:1px solid var(--la-navy)!important;box-shadow:none!important;border-radius:10px!important;font-weight:650!important}
+html.ada-staff-route #ada-cloud-gate button:hover,html.ada-auth-route #ada-cloud-gate button:hover{background:var(--la-primary-hover)!important;transform:none!important}
+html.ada-staff-route #ada-cloud-gate button.secondary,html.ada-auth-route #ada-cloud-gate button.secondary{background:var(--la-surface)!important;color:var(--la-accent)!important;border:1px solid var(--la-line2)!important}
+html.ada-staff-route #ada-cloud-gate button.secondary:hover,html.ada-auth-route #ada-cloud-gate button.secondary:hover{background:var(--la-soft)!important}
+html.ada-staff-route #ada-cloud-gate button:disabled{opacity:.5!important}
+html.ada-staff-route #ada-cloud-gate .cloud-side button{color:var(--la-side-ink)!important}
+html.ada-staff-route #ada-cloud-gate .cloud-side button.active{color:#fff!important}
+html.ada-staff-route #ada-cloud-gate .ada-dash-quick button{background:var(--la-soft)!important;color:var(--la-ink)!important;border:1px solid var(--la-line)!important}
+
+/* Input */
+html.ada-staff-route #ada-cloud-gate :is(input,select,textarea),html.ada-auth-route #ada-cloud-gate :is(input,select,textarea){background:var(--la-surface)!important;color:var(--la-ink)!important;border:1px solid var(--la-line2)!important;box-shadow:none!important}
+html.ada-staff-route #ada-cloud-gate :is(input,select,textarea):focus,html.ada-auth-route #ada-cloud-gate :is(input,select,textarea):focus{border-color:var(--la-navy)!important;box-shadow:0 0 0 3px rgba(122,174,255,.3)!important;outline:none!important}
+html.ada-staff-route #ada-cloud-gate ::placeholder,html.ada-auth-route #ada-cloud-gate ::placeholder{color:var(--la-placeholder)!important}
+html.ada-staff-route #ada-cloud-gate label{color:var(--la-ink2)!important}
+
+/* Nav bawah (telefon) */
+html.ada-staff-route #ada-cloud-gate .cloud-bottom{background:var(--la-surface)!important;border-top:1px solid var(--la-line)!important;box-shadow:none!important;backdrop-filter:none!important}
+html.ada-staff-route #ada-cloud-gate .cloud-bottom button{background:transparent!important;border:0!important;color:var(--la-muted)!important;font-weight:600!important}
+html.ada-staff-route #ada-cloud-gate .cloud-bottom button.active{background:var(--la-blue-soft)!important;color:var(--la-accent)!important;box-shadow:inset 0 -3px 0 var(--la-accent)!important}
+
+/* Mesej & toolbar */
+html.ada-staff-route #ada-cloud-gate #ada-cloud-message{color:var(--la-muted)!important}
+
+/* ---------- Log masuk ---------- */
+html.ada-auth-route #ada-cloud-gate #ada-login-box,html.ada-auth-route #ada-cloud-gate .ada-login-card{background:var(--la-surface)!important;border:1px solid var(--la-line)!important;box-shadow:0 20px 50px rgba(0,0,0,.45)!important}
+html.ada-auth-route #ada-cloud-gate #ada-login-box *::before,html.ada-auth-route #ada-cloud-gate #ada-login-box *::after{display:none}
+html.ada-auth-route #ada-cloud-gate h1,html.ada-auth-route #ada-cloud-gate h2{color:var(--la-ink)!important}
+html.ada-auth-route #ada-cloud-gate .muted,html.ada-auth-route #ada-cloud-gate small,html.ada-auth-route #ada-cloud-gate .ada-login-sub{color:var(--la-muted)!important}
+html.ada-auth-route #ada-cloud-gate label{color:var(--la-ink2)!important}
+html.ada-auth-route #ada-cloud-gate .apih-demo-login button{background:var(--la-green-soft)!important;border:1px solid var(--la-green-line)!important;color:var(--la-green)!important}
+
+/* ---------- Modul Akaun ---------- */
+html.ada-staff-route #ada-cloud-gate .ak{--ak-in:var(--la-green);--ak-out:var(--la-red);--ak-y:var(--la-accent);--ak-card:var(--la-surface);--ak-line:var(--la-line);color:var(--la-ink)!important}
+html.ada-staff-route #ada-cloud-gate .ak-head h2{font-family:Inter,sans-serif!important;font-weight:800!important;letter-spacing:-.02em!important;font-size:clamp(24px,3vw,30px)!important}
+html.ada-staff-route #ada-cloud-gate .ak-kicker{color:var(--la-accent)!important}
+html.ada-staff-route #ada-cloud-gate .ak-demo{background:var(--la-yellow-soft)!important;border:1px dashed var(--la-yellow-line)!important;color:var(--la-yellow)!important}
+html.ada-staff-route #ada-cloud-gate .ak-month strong{font-family:Inter,sans-serif!important;font-weight:800!important;color:var(--la-ink)!important}
+html.ada-staff-route #ada-cloud-gate :is(.ak-card,.ak-kpi){background:var(--la-surface)!important;border:1px solid var(--la-line)!important;box-shadow:var(--la-shadow)!important}
+html.ada-staff-route #ada-cloud-gate .ak-kpi span{color:var(--la-muted)!important}
+html.ada-staff-route #ada-cloud-gate .ak-kpi strong{font-family:Inter,sans-serif!important;font-weight:800!important;letter-spacing:-.02em!important;color:var(--la-ink)!important}
+html.ada-staff-route #ada-cloud-gate .ak-kpi.in strong{color:var(--la-green)!important}
+html.ada-staff-route #ada-cloud-gate .ak-kpi.out strong{color:var(--la-red)!important}
+html.ada-staff-route #ada-cloud-gate .ak-kpi.gp strong{color:var(--la-accent)!important}
+html.ada-staff-route #ada-cloud-gate .ak-kpi.gp::before{background:var(--la-accent)!important}
+html.ada-staff-route #ada-cloud-gate .ak-kpi small,html.ada-staff-route #ada-cloud-gate .ak-acc>small,html.ada-staff-route #ada-cloud-gate .ak-row-main small,html.ada-staff-route #ada-cloud-gate .ak-legend,html.ada-staff-route #ada-cloud-gate .ak-hint,html.ada-staff-route #ada-cloud-gate .ak-acc-top small{color:var(--la-muted)!important}
+html.ada-staff-route #ada-cloud-gate .ak-chart .ak-axis{stroke:var(--la-line2)}
+html.ada-staff-route #ada-cloud-gate .ak-chart .ak-tick{fill:var(--la-muted)}
+html.ada-staff-route #ada-cloud-gate .ak-chart .ak-bar-in{fill:var(--la-green)}
+html.ada-staff-route #ada-cloud-gate .ak-chart .ak-bar-out{fill:var(--la-red)}
+html.ada-staff-route #ada-cloud-gate .ak-chart .ak-val.in{fill:var(--la-green)}
+html.ada-staff-route #ada-cloud-gate .ak-chart .ak-val.out{fill:var(--la-red)}
+html.ada-staff-route #ada-cloud-gate .ak-legend i.in{background:var(--la-green)!important}
+html.ada-staff-route #ada-cloud-gate .ak-legend i.out{background:var(--la-red)!important}
+html.ada-staff-route #ada-cloud-gate .ak-cat-track{background:var(--la-soft)!important}
+html.ada-staff-route #ada-cloud-gate .ak-cat-track i{background:var(--la-accent)!important}
+html.ada-staff-route #ada-cloud-gate .ak-cat-top b,html.ada-staff-route #ada-cloud-gate .ak-acc strong{color:var(--la-ink)!important;font-family:Inter,sans-serif!important;font-weight:800!important;letter-spacing:-.02em!important}
+html.ada-staff-route #ada-cloud-gate .ak-acc{background:var(--la-soft)!important;border:1px solid var(--la-line)!important}
+html.ada-staff-route #ada-cloud-gate .ak-acc.warn{background:var(--la-amber-soft)!important;border-color:var(--la-amber-line)!important}
+html.ada-staff-route #ada-cloud-gate .ak-acc-top{color:var(--la-ink2)!important}
+html.ada-staff-route #ada-cloud-gate .ak-btn{background:var(--la-surface)!important;border:1px solid var(--la-line2)!important;color:var(--la-accent)!important}
+html.ada-staff-route #ada-cloud-gate .ak-btn.primary{background:var(--la-navy)!important;border-color:var(--la-navy)!important;color:#fff!important;box-shadow:none!important}
+html.ada-staff-route #ada-cloud-gate .ak-btn.danger{background:var(--la-red-soft)!important;border-color:var(--la-red-line)!important;color:var(--la-red)!important}
+html.ada-staff-route #ada-cloud-gate .ak-link{background:none!important;border:0!important;color:var(--la-accent)!important}
+html.ada-staff-route #ada-cloud-gate .ak-icon{background:var(--la-surface)!important;border:1px solid var(--la-line2)!important;color:var(--la-accent)!important}
+html.ada-staff-route #ada-cloud-gate .ak-chip{background:var(--la-surface)!important;border:1px solid var(--la-line2)!important;color:var(--la-ink2)!important}
+html.ada-staff-route #ada-cloud-gate .ak-chip.on{background:var(--la-navy)!important;border-color:var(--la-navy)!important;color:#fff!important}
+html.ada-staff-route #ada-cloud-gate .ak-chip b{background:var(--la-red)!important;color:#fff!important}
+html.ada-staff-route #ada-cloud-gate .ak-row{background:var(--la-surface)!important;border:1px solid var(--la-line)!important;color:var(--la-ink)!important}
+html.ada-staff-route #ada-cloud-gate .ak-row:hover{background:var(--la-hover)!important;border-color:var(--la-line3)!important}
+html.ada-staff-route #ada-cloud-gate .ak-row-main strong{color:var(--la-ink)!important}
+html.ada-staff-route #ada-cloud-gate .ak-row-amt{color:var(--la-ink2)!important}
+html.ada-staff-route #ada-cloud-gate .ak-row-amt.pos,html.ada-staff-route #ada-cloud-gate .ak-detail-amt.pos{color:var(--la-green)!important}
+html.ada-staff-route #ada-cloud-gate .ak-row-amt.neg,html.ada-staff-route #ada-cloud-gate .ak-detail-amt.neg{color:var(--la-red)!important}
+html.ada-staff-route #ada-cloud-gate .ak-row-ic{background:var(--la-soft)!important;color:var(--la-ink2)!important}
+html.ada-staff-route #ada-cloud-gate .ak-row-ic:is(.receipt,.income,.capital){background:var(--la-green-soft)!important;color:var(--la-green)!important}
+html.ada-staff-route #ada-cloud-gate .ak-row-ic:is(.expense,.drawings,.refund){background:var(--la-red-soft)!important;color:var(--la-red)!important}
+html.ada-staff-route #ada-cloud-gate .ak-row-ic.transfer{background:var(--la-blue-soft)!important;color:var(--la-accent)!important}
+html.ada-staff-route #ada-cloud-gate .ak-row-ic.adjustment{background:var(--la-amber-soft)!important;color:var(--la-amber)!important}
+html.ada-staff-route #ada-cloud-gate .ak-tag{background:var(--la-line)!important;color:var(--la-ink2)!important}
+html.ada-staff-route #ada-cloud-gate .ak-tag.warn{background:var(--la-amber-soft)!important;color:var(--la-amber)!important}
+html.ada-staff-route #ada-cloud-gate .ak-tag.void{background:var(--la-red-soft)!important;color:var(--la-red)!important}
+html.ada-staff-route #ada-cloud-gate .ak-tag.sale{background:var(--la-green-soft)!important;color:var(--la-green)!important}
+html.ada-staff-route #ada-cloud-gate .ak-empty,html.ada-staff-route #ada-cloud-gate .ak-foot{color:var(--la-muted)!important}
+html.ada-staff-route #ada-cloud-gate .ak-locked{background:var(--la-yellow-soft)!important;border-color:var(--la-yellow-line)!important}
+/* Modal akaun */
+html.ada-staff-route #ada-cloud-gate .ak-modal-bg{background:rgba(0,0,0,.6)!important}
+html.ada-staff-route #ada-cloud-gate .ak-modal-panel{background:var(--la-surface)!important;border:1px solid var(--la-line)!important;box-shadow:0 30px 70px rgba(0,0,0,.6)!important;color:var(--la-ink)!important}
+html.ada-staff-route #ada-cloud-gate .ak-modal-head h3{font-family:Inter,sans-serif!important;font-weight:800!important;font-size:20px!important;letter-spacing:-.01em!important}
+html.ada-staff-route #ada-cloud-gate .ak-seg span{border-color:var(--la-line2)!important;color:var(--la-ink2)!important;background:var(--la-surface)}
+html.ada-staff-route #ada-cloud-gate .ak-seg input:checked+span{background:var(--la-navy)!important;border-color:var(--la-navy)!important;color:#fff!important}
+html.ada-staff-route #ada-cloud-gate .ak-fields label,html.ada-staff-route #ada-cloud-gate .ak-dl dt{color:var(--la-muted)!important}
+html.ada-staff-route #ada-cloud-gate .ak-dl dd,html.ada-staff-route #ada-cloud-gate .ak-detail-desc{color:var(--la-ink)!important}
+html.ada-staff-route #ada-cloud-gate .ak-detail-amt{font-family:Inter,sans-serif!important;font-weight:800!important;letter-spacing:-.02em!important;color:var(--la-ink)!important}
+html.ada-staff-route #ada-cloud-gate .ak-inline{color:var(--la-amber)!important}
+html.ada-staff-route #ada-cloud-gate .ak-err{color:var(--la-red)!important}
+html.ada-staff-route #ada-cloud-gate .ak-trail{border-top-color:var(--la-line)!important}
+html.ada-staff-route #ada-cloud-gate .ak-accmgr-row{background:var(--la-soft)!important;border:1px solid var(--la-line)}
+html.ada-staff-route #ada-cloud-gate .ak-toast{background:var(--la-navy)!important;color:#fff!important}
+
+/* ---------- Pengukuhan (mengatasi peraturan asal yang lebih spesifik) ---------- */
+html.ada-staff-route #ada-cloud-gate #ada-cloud-panel,html.ada-staff-route #ada-cloud-gate #ada-cloud-view{background:transparent!important;background-image:none!important}
+html.ada-staff-route #ada-cloud-gate #ada-cloud-panel .cloud-car{background:var(--la-surface)!important;background-image:none!important;border:1px solid var(--la-line)!important;box-shadow:var(--la-shadow)!important}
+html.ada-staff-route #ada-cloud-gate #ada-cloud-panel .cloud-car .photo{background:var(--la-soft)!important;background-image:none!important}
+html.ada-staff-route #ada-cloud-gate #ada-cloud-panel .cloud-car .info{background:var(--la-surface)!important}
+html.ada-staff-route #ada-cloud-gate #ada-cloud-panel :is(.ada-kpi,.ada-dash-card,.panel,.ada-master-box,.cloud-stat,.ada-report-note,.ada-settings-form,.cloud-table-wrap,.ada-master-panel,.ada-inspection-progress){background:var(--la-surface)!important;background-image:none!important}
+html.ada-staff-route #ada-cloud-gate #ada-cloud-panel :is(.ada-attention-row,.ada-master-row,.ada-message-preview){background:var(--la-soft)!important;background-image:none!important}
+html.ada-staff-route #ada-cloud-gate #ada-cloud-panel .cloud-table td .cloud-pill{background:var(--la-soft)!important;background-image:none!important;color:var(--la-ink2)!important;border:1px solid var(--la-line2)!important;padding:4px 10px!important;border-radius:99px!important;font-size:11px!important;font-weight:750!important;white-space:nowrap}
+html.ada-staff-route #ada-cloud-gate #ada-cloud-panel .cloud-table td .cloud-pill:is(.sold),html.ada-staff-route #ada-cloud-gate #ada-cloud-panel .cloud-table td .cloud-pill[data-s="sold"]{color:var(--la-green)!important}
+html.ada-staff-route #ada-cloud-gate #ada-cloud-panel .cloud-table{background:var(--la-surface)!important}
+html.ada-staff-route #ada-cloud-gate #ada-cloud-panel .cloud-table-wrap{overflow:auto}
+html.ada-staff-route #ada-cloud-gate #ada-cloud-panel h2{color:var(--la-ink)!important}
+html.ada-staff-route #ada-cloud-gate #ada-cloud-panel .ada-dash-head h2{font-size:clamp(22px,3vw,28px)!important}
+html.ada-staff-route #ada-cloud-gate #ada-cloud-panel .ada-car-title h3{color:var(--la-ink)!important}
+html.ada-staff-route #ada-cloud-gate #ada-cloud-panel .ada-share-action{background:var(--la-surface)!important;border:1px solid var(--la-navy)!important;color:var(--la-accent)!important}
+html.ada-staff-route #ada-cloud-gate #ada-cloud-panel .ada-icon-action{background:var(--la-surface)!important;border:1px solid var(--la-line2)!important;color:var(--la-ink2)!important}
+html.ada-staff-route #ada-cloud-gate #ada-cloud-panel .ada-icon-action.is-live{background:var(--la-green-soft)!important;color:var(--la-green)!important;border-color:var(--la-green-line)!important}
+html.ada-staff-route #ada-cloud-gate #ada-cloud-panel .cloud-pill{background:var(--la-soft)!important;background-image:none!important;color:var(--la-ink2)!important;border:1px solid var(--la-line2)!important;backdrop-filter:none!important}
+html.ada-staff-route #ada-cloud-gate #ada-cloud-panel .cloud-pill.status-available{background:var(--la-green-soft)!important;color:var(--la-green)!important;border-color:var(--la-green-line)!important}
+html.ada-staff-route #ada-cloud-gate #ada-cloud-panel .cloud-pill.status-reserved{background:var(--la-amber-soft)!important;color:var(--la-amber)!important;border-color:var(--la-amber-line)!important}
+html.ada-staff-route #ada-cloud-gate #ada-cloud-panel .cloud-pill.status-sold{background:var(--la-red-soft)!important;color:var(--la-red)!important;border-color:var(--la-red-line)!important}
+html.ada-staff-route #ada-cloud-gate #ada-cloud-panel .cloud-pill.status-preparation{background:var(--la-blue-soft)!important;color:var(--la-accent)!important;border-color:var(--la-blue-line)!important}
+html.ada-staff-route #ada-cloud-gate #ada-cloud-panel .ada-price{color:var(--la-accent)!important}
+@media(max-width:720px){
+  html.ada-staff-route #ada-cloud-gate #ada-cloud-panel .cloud-table-wrap{background:transparent!important;border:0!important;box-shadow:none!important;padding:0!important}
+  html.ada-staff-route #ada-cloud-gate #ada-cloud-panel .cloud-table tr:has(th){display:none!important}
+  html.ada-staff-route #ada-cloud-gate #ada-cloud-panel .cloud-table tr{background:var(--la-surface)!important;border:1px solid var(--la-line)!important;border-radius:14px!important;box-shadow:var(--la-shadow)!important;margin:0 0 10px!important;padding:6px 14px!important;overflow:hidden}
+  html.ada-staff-route #ada-cloud-gate #ada-cloud-panel .cloud-table td{border:0!important;border-bottom:1px solid var(--la-line)!important;padding:9px 0!important;font-size:14px!important;background:transparent!important}
+  html.ada-staff-route #ada-cloud-gate #ada-cloud-panel .cloud-table td:first-child{font-weight:800!important;font-size:16px!important;color:var(--la-ink)!important}
+  html.ada-staff-route #ada-cloud-gate #ada-cloud-panel .cloud-table td:last-child{border-bottom:0!important}
+  html.ada-staff-route #ada-cloud-gate #ada-cloud-panel .cloud-table td .cloud-pill{box-shadow:none!important}
+}
+/* Log masuk: pengukuhan */
+html.ada-auth-route,html.ada-staff-route{background:var(--la-bg)!important}
+html.ada-auth-route body #ada-cloud-gate,html.ada-staff-route body #ada-cloud-gate{background:var(--la-bg)!important;background-image:none!important}
+html.ada-auth-route body #ada-cloud-gate #ada-login-box :is(h1,h2,h3){color:var(--la-ink)!important;-webkit-text-fill-color:var(--la-ink)!important;background:none!important}
+html.ada-auth-route body #ada-cloud-gate #ada-login-box{background:var(--la-surface)!important;background-image:none!important}
+html.ada-auth-route body #ada-cloud-gate:has(#ada-login-box:not([hidden])){background:var(--la-bg)!important;background-image:none!important}
+
+/* ---------- Kebolehbacaan: saiz minimum & kontras ---------- */
+html.ada-staff-route #ada-cloud-gate{font-size:15px}
+html.ada-staff-route #ada-cloud-gate :is(small,.ada-kpi-foot,.ada-car-meta,.ada-attention-copy small,.ada-dash-quick button small,.ak-row-main small,.ak-kpi small,.ak-acc>small,.ak-hint,.ak-foot,.cloud-stat span,.ada-page-context,.ada-photo-count){font-size:13px!important;line-height:1.45!important}
+html.ada-staff-route #ada-cloud-gate :is(.ada-kpi-label,.ak-kpi span,.cloud-table th,.ada-cloud-kicker,.ak-kicker){font-size:12.5px!important;letter-spacing:.06em!important;font-weight:700!important;color:var(--la-muted)!important}
+html.ada-staff-route #ada-cloud-gate .ada-cloud-kicker,html.ada-staff-route #ada-cloud-gate .ak-kicker{color:var(--la-accent)!important}
+html.ada-staff-route #ada-cloud-gate :is(.ada-attention-copy strong,.ak-row-main strong,.cloud-table td){font-size:14.5px!important}
+html.ada-staff-route #ada-cloud-gate :is(.ak-tag,.cloud-pill){font-size:12px!important}
+html.ada-staff-route #ada-cloud-gate .cloud-notice{font-size:14px!important}
+html.ada-staff-route #ada-cloud-gate .cloud-hero{border:1px solid var(--la-line)!important;border-left:4px solid var(--la-accent)!important}
+html.ada-staff-route #ada-cloud-gate .wrap>header{background:var(--la-navy2)!important}
+html.ada-staff-route #ada-cloud-gate .ada-cloud-brandcopy strong,html.ada-staff-route #ada-cloud-gate .ada-cloud-brand strong{color:var(--la-ink)!important}
+html.ada-staff-route #ada-cloud-gate .cloud-side{border-right:1px solid var(--la-line)!important}
+html.ada-staff-route #ada-cloud-gate .cloud-bottom{background:var(--la-navy2)!important}
+html.ada-staff-route #ada-cloud-gate .cloud-bottom button{font-size:11.5px!important}
+html.ada-staff-route #ada-cloud-gate .cloud-bottom button.active{color:#fff!important}
+html.ada-staff-route #ada-cloud-gate #ada-cloud-panel .cloud-car .photo{background:var(--la-soft)!important}
+html.ada-staff-route #ada-cloud-gate #ada-cloud-panel .cloud-car .info{background:var(--la-surface)!important}
+html.ada-staff-route #ada-cloud-gate #ada-cloud-panel .ada-price{color:var(--la-ink)!important}
+html.ada-staff-route #ada-cloud-gate .ak-chart .ak-axis{stroke:var(--la-line3)}
+html.ada-staff-route #ada-cloud-gate .ak-chart .ak-tick{font-size:13px}
+html.ada-staff-route #ada-cloud-gate .ak-seg span{background:var(--la-soft)!important}
+html.ada-staff-route #ada-cloud-gate .ak-modal-panel{background:var(--la-surface)!important}
+html.ada-staff-route #ada-cloud-gate .ak-toast{background:var(--la-ink)!important;color:var(--la-bg)!important}
+html.ada-auth-route #ada-cloud-gate #ada-login-box{border:1px solid var(--la-line2)!important}
+html.ada-auth-route body #ada-cloud-gate #ada-login-box{background:var(--la-surface)!important}
