@@ -22,6 +22,21 @@ Ciri-ciri ini ada dalam `js/apih-enhance.js` dan `css/apih-enhance.css`. Ia hany
 - Dok terapung (ke atas / tapis / WhatsApp).
 - Halaman kereta: gambar penuh lebar, bar harga + WhatsApp yang melekat di bawah, dan kalkulator ansuran (deposit + tempoh).
 
+## Panel admin demo & Modul Akaun
+
+**Masuk demo:** buka `?admin=1`, kemudian tekan **Masuk Demo sebagai Owner**. Data contoh (15 kereta, 2 jualan, 3 bayaran) dimuatkan untuk paparan sahaja. Semua tindakan simpan dalam modul lain akan memaparkan mesej mod demo.
+
+**Akaun** (menu sidebar / nav bawah, Owner sahaja). Ia ialah cashbook berdasarkan konsep sistem 3 Abdul Motor:
+
+- Akaun bank/tunai dengan baki pembukaan yang dikunci, dan baki semasa setiap akaun.
+- Catatan manual: perbelanjaan (ikut kategori), pendapatan lain, modal owner, ambilan owner, pindahan akaun, dan pelarasan baki (sebab wajib).
+- Bayaran pelanggan daripada modul Jualan dipaparkan automatik. Bayaran perlu dipadankan ke akaun; selagi belum dipadankan, ia tidak dikira dalam baki.
+- Transaksi tidak boleh diubah atau dipadam. Pembatalan menambah entri songsang beserta sebab.
+- Senarai "Perlu semakan" (belum disemak, belum dipadankan, perbelanjaan tanpa resit), lampiran resit (maksimum 5), pengecualian resit beserta sebab, dan jejak audit.
+- KPI bulanan (wang masuk, wang keluar, aliran bersih, untung kasar jualan), carta mingguan, perbelanjaan ikut kategori, dan CSV bulanan.
+
+Dalam mod demo, data akaun disimpan dalam `localStorage` pelayar sahaja. Bila Supabase disambung, modul ini memaparkan notis "belum diaktifkan". Untuk produksi, ia perlukan jadual Supabase (akaun, transaksi, audit, storan resit peribadi) dengan RLS owner sahaja. Rujuk `supabase/accounting.sql` dalam repo 3 Abdul Motor sebagai asas.
+
 ## Sambung ke Supabase Apih
 
 1. Cipta projek baharu di [supabase.com](https://supabase.com) untuk Apih Automobile.
